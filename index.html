@@ -367,10 +367,8 @@
             
             <!-- 主视频播放器 -->
             <div class="relative mb-6 rounded-xl overflow-hidden shadow-2xl hover-scale">
-                <!-- 修复：1. 添加了 muted 属性 2. 更新了视频源路径 -->
                 <video id="gameVideo" width="100%" autoplay muted loop playsinline class="w-full">
-                      <source src="http://t38po47ot.hn-bkt.clouddn.com/clip_1.mp4" type="video/mp4">
-                      <source src="http://t38po47ot.hn-bkt.clouddn.com/clip_1.webm" type="video/webm">
+                      <source src="https://cdn.jsdelivr.net/gh/shaw0w0/videos@Releasev1.0/videos/clip_1.mp4" type="video/mp4">
                       您的浏览器不支持 HTML5 视频标签。
                 </video>
                 <div class="absolute bottom-0 left-0 right-0 p-4 gradient-overlay">
@@ -409,32 +407,35 @@
                 btn.classList.remove('text-accent');
             }, 1200);
         }
-    </script>
-    <script>
-  const videos = [
-    { src: "https://cdn.jsdelivr.net/gh/shaw0w0/videos@Releasev1.0/videos/clip_1.mp4", title: "精彩集锦 #1" },
-    { src: "https://cdn.jsdelivr.net/gh/shaw0w0/videos@Releasev1.0/videos/clip_2.mp4", title: "精彩集锦 #2" },
-    { src: "https://cdn.jsdelivr.net/gh/shaw0w0/videos@Releasev1.0/videos/clip_3.mp4", title: "精彩集锦 #3" }
-  ];
-  let current = 0;
-  const videoEl = document.getElementById('gameVideo');
-  const titleEl = document.getElementById('currentVideoTitle');
 
-  function loadVideo(index) {
-    videoEl.src = videos[index].src;
-    titleEl.textContent = videos[index].title;
-    current = index;
-  }
-  document.getElementById('prevVideo').addEventListener('click', () => {
-    current = (current - 1 + videos.length) % videos.length;
-    loadVideo(current);
-  });
-  document.getElementById('nextVideo').addEventListener('click', () => {
-    current = (current + 1) % videos.length;
-    loadVideo(current);
-  });
-  loadVideo(0); // 初始化
-</script>
+        // 视频列表
+        const videos = [
+            { src: "https://cdn.jsdelivr.net/gh/shaw0w0/videos@Releasev1.0/videos/clip_1.mp4", title: "精彩集锦 #1" },
+            { src: "https://cdn.jsdelivr.net/gh/shaw0w0/videos@Releasev1.0/videos/clip_2.mp4", title: "精彩集锦 #2" },
+            { src: "https://cdn.jsdelivr.net/gh/shaw0w0/videos@Releasev1.0/videos/clip_3.mp4", title: "精彩集锦 #3" }
+        ];
+        let currentVideoIndex = 0;
+        const videoPlayer = document.getElementById('gameVideo');
+        const videoTitle = document.getElementById('currentVideoTitle');
+        const prevButton = document.getElementById('prevVideo');
+        const nextButton = document.getElementById('nextVideo');
+
+        function loadVideo(index) {
+            const currentVideo = videos[index];
+            videoPlayer.src = currentVideo.src;
+            videoTitle.textContent = currentVideo.title;
+            videoPlayer.play();
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+            loadVideo(currentVideoIndex);
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            loadVideo(currentVideoIndex);
+        });
+    </script>
 </body>
 </html>
-
