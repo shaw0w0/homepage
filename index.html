@@ -415,80 +415,72 @@
             { src: "http://t38po47ot.hn-bkt.clouddn.com/clip_3.mp4", title: "精彩集锦 #3" }
         ];
 
-        
         let currentVideoIndex = 0;
-        
-        const videoElement = document.getElementById('gameVideo');
+        const videoElement   = document.getElementById('gameVideo');
         const currentVideoTitle = document.getElementById('currentVideoTitle');
-        const prevVideoBtn = document.getElementById('prevVideo');
-        const nextVideoBtn = document.getElementById('nextVideo');
+        const prevVideoBtn   = document.getElementById('prevVideo');
+        const nextVideoBtn   = document.getElementById('nextVideo');
+
+        /*---------------- 自动播放兜底 ----------------*/
+        function ensureAutoplay() {
+            videoElement.muted = true;                       // 1. 强制静音
+            videoElement.addEventListener('canplay', () => { // 2. 可播时立即播
+                videoElement.play().catch(()=>{});
+            }, {once: true});
+
+            // 3. 用户首次点击/触摸时再兜底一次
+            const wake = () => {
+                videoElement.play().catch(()=>{});
+                document.removeEventListener('click', wake);
+                document.removeEventListener('touchstart', wake);
+            };
+            document.addEventListener('click', wake, {once: true});
+            document.addEventListener('touchstart', wake, {once: true});
+        }
+        /*---------------------------------------------*/
 
         function updateVideoPlayer() {
-          const v = videos[currentVideoIndex];
-          videoElement.src = v.src.trim();
-          currentVideoTitle.textContent = v.title;
-          videoElement.load();
-          videoElement.play();
+            const v = videos[currentVideoIndex];
+            videoElement.src = v.src.trim();
+            currentVideoTitle.textContent = v.title;
+            videoElement.load();      // 重新加载新片段
+            ensureAutoplay();         // 每次换片都重新跑自动播放逻辑
         }
-        // 视频控制
+
         prevVideoBtn.addEventListener('click', () => {
-          currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
-          updateVideoPlayer();
-        });
-        nextVideoBtn.addEventListener('click', () => {
-          currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-          updateVideoPlayer();
-        });
-        
-        // 当视频播放结束时，播放下一个视频
-        videoElement.addEventListener('ended', playNextVideo);
-        
-        function playPrevVideo() {
             currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
             updateVideoPlayer();
-        }
-        
-        function playNextVideo() {
+        });
+        nextVideoBtn.addEventListener('click', () => {
             currentVideoIndex = (currentVideoIndex + 1) % videos.length;
             updateVideoPlayer();
-        }
-        
-        // 微信二维码弹窗功能
-        const modal = document.getElementById('wechatModal');
+        });
+
+        videoElement.addEventListener('ended', () => {
+            currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+            updateVideoPlayer();
+        });
+
+        /*-------------- 微信弹窗 & 导航栏 --------------*/
+        const modal      = document.getElementById('wechatModal');
         const addFriendBtn = document.getElementById('addFriendBtn');
-        const closeBtn = document.querySelector('.close-btn');
-        
-        addFriendBtn.addEventListener('click', () => {
-            modal.style.display = 'flex';
-        });
-        
-        closeBtn.addEventListener('click', () => {
-            modal.style.display = 'none';
-        });
-        
-        window.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-        
-        // 导航栏滚动效果
+        const closeBtn   = document.querySelector('.close-btn');
+
+        addFriendBtn.addEventListener('click', () => modal.style.display = 'flex');
+        closeBtn.addEventListener('click', () => modal.style.display = 'none');
+        window.addEventListener('click', e => { if (e.target === modal) modal.style.display = 'none'; });
+
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.classList.add('bg-dark/95');
-                nav.classList.remove('bg-dark/80');
-            } else {
-                nav.classList.add('bg-dark/80');
-                nav.classList.remove('bg-dark/95');
-            }
+            nav.classList.toggle('bg-dark/95', window.scrollY > 50);
+            nav.classList.toggle('bg-dark/80', window.scrollY <= 50);
         });
+
+        /*-------------- 页面就绪后首次加载 --------------*/
         document.addEventListener('DOMContentLoaded', updateVideoPlayer);
     </script>
 </body>
-
 </html>
-
 
 
 
