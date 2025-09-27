@@ -347,9 +347,10 @@
             <!-- 主视频播放器 -->
             <div class="relative mb-6 rounded-xl overflow-hidden shadow-2xl hover-scale">
                 <!-- 修复：1. 添加了 muted 属性 2. 更新了视频源路径 -->
-                <video id="gameVideo" width="100%" autoplay muted loop playsinline class="w-full"></video>
-                    <source src="videos/clip_1.mp4" type="video/mp4">
-                    您的浏览器不支持 HTML5 视频标签。
+                <video id="gameVideo" width="100%" autoplay muted loop playsinline class="w-full">
+                      <source src="videos/clip_1.mp4" type="video/mp4">
+                      <source src="videos/clip_1.webm" type="video/webm">
+                      您的浏览器不支持 HTML5 视频标签。
                 </video>
                 <div class="absolute bottom-0 left-0 right-0 p-4 gradient-overlay">
                     <h3 id="currentVideoTitle" class="text-xl font-bold">精彩集锦 #1</h3>
@@ -463,6 +464,7 @@
 </body>
 
 </html>
+
 
 
 
