@@ -4,31 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>个人主页</title>
-    <!-- 引入 Tailwind CSS 框架 -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Font Awesome 图标库 -->
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     
+    <!-- Tailwind配置 -->
     <script>
-        // Tailwind CSS 自定义配置
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        primary: '#FF4655', // 主色：Valorant 红色
+                        primary: '#FF4655', // Valorant红色
                         secondary: '#111111', // 深黑色
-                        accent: '#F9A826', // 亮黄色
-                        dark: '#0F1923', // 背景色
+                        accent: '#F9A826', // 亮黄色点缀
+                        dark: '#0F1923', // 深色背景
                     },
                     fontFamily: {
-                        valorant: ['Inter', 'sans-serif'], // 字体
+                        valorant: ['Inter', 'sans-serif'],
                     },
                 }
             }
         }
     </script>
-
-    <!-- 自定义 Tailwind CSS 样式 -->
+    
     <style type="text/tailwindcss">
         @layer utilities {
             .content-auto {
@@ -49,11 +46,10 @@
         }
     </style>
     
-    <!-- 自定义页面样式 -->
     <style>
         body {
-            background-color: #0F1923; /* 设置背景色 */
-            font-family: 'Inter', sans-serif; /* 设置字体 */
+            background-color: #0F1923;
+            font-family: 'Inter', sans-serif;
         }
         
         /* 自定义滚动条 */
@@ -122,8 +118,9 @@
     <nav class="fixed top-0 left-0 right-0 z-50 bg-dark/80 backdrop-blur-md border-b border-primary/20">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <img src="images/valorant-logo.jpg" alt="Valorant" class="h-6 w-auto"> <!-- Valorant 图标 -->
-                <span class="font-bold text-xl tracking-wider">VALORANT</span> <!-- 游戏名称 -->
+                <!-- Valorant图标 -->
+                <img src="images/valorant-logo.jpg" alt="Valorant" class="h-6 w-auto">
+                <span class="font-bold text-xl tracking-wider">VALORANT</span>
             </div>
             <div class="flex space-x-4">
                 <!-- B站主页按钮 -->
@@ -167,10 +164,9 @@
             <p class="text-gray-400 text-center mb-12">我的游戏表现</p>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <!-- 统计信息卡片 -->
                 <div class="bg-secondary rounded-lg p-6 text-center hover-scale">
                     <div class="text-primary text-4xl mb-2">
-                        <i class="fa fa-crosshairs"></i> <!-- K/D 图标 -->
+                        <i class="fa fa-crosshairs"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-1">1.2</h3>
                     <p class="text-gray-400">K/D</p>
@@ -178,7 +174,7 @@
                 
                 <div class="bg-secondary rounded-lg p-6 text-center hover-scale">
                     <div class="text-primary text-4xl mb-2">
-                        <i class="fa fa-trophy"></i> <!-- 当前段位图标 -->
+                        <i class="fa fa-trophy"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-1">Platinum 3</h3>
                     <p class="text-gray-400">当前段位</p>
@@ -186,7 +182,7 @@
                 
                 <div class="bg-secondary rounded-lg p-6 text-center hover-scale">
                     <div class="text-primary text-4xl mb-2">
-                        <i class="fa fa-clock-o"></i> <!-- 入坑时间图标 -->
+                        <i class="fa fa-clock-o"></i>
                     </div>
                     <h3 class="text-2xl font-bold mb-1">2022</h3>
                     <p class="text-gray-400">入坑时间</p>
@@ -196,7 +192,7 @@
             <div class="mt-12 bg-secondary rounded-lg p-6">
                 <h3 class="text-xl font-bold mb-6 text-center">常用角色</h3>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <!-- 角色展示 -->
+                    <!-- 修改：角色1 - Omen -->
                     <div class="text-center">
                         <div class="w-20 h-20 mx-auto mb-2 rounded-full overflow-hidden border-2 border-primary">
                             <img src="images/omen.jpg" alt="Omen" class="w-full h-full object-cover">
@@ -204,6 +200,7 @@
                         <h4 class="font-bold">Omen</h4>
                     </div>
                     
+                    <!-- 修改：角色2 - Reyna -->
                     <div class="text-center">
                         <div class="w-20 h-20 mx-auto mb-2 rounded-full overflow-hidden border-2 border-primary">
                             <img src="images/reyna.jpg" alt="Reyna" class="w-full h-full object-cover">
@@ -211,6 +208,7 @@
                         <h4 class="font-bold">Reyna</h4>
                     </div>
                     
+                    <!-- 修改：角色3 - Skye -->
                     <div class="text-center">
                         <div class="w-20 h-20 mx-auto mb-2 rounded-full overflow-hidden border-2 border-primary">
                             <img src="images/skye.jpg" alt="Skye" class="w-full h-full object-cover">
@@ -221,7 +219,7 @@
             </div>
         </div>
     </section>
-
+    
     <!-- 设置选项 -->
     <section id="settings" class="py-16 px-4 bg-dark">
         <div class="container mx-auto max-w-5xl">
@@ -254,25 +252,6 @@
                         <div class="flex justify-between items-center">
                             <span class="text-gray-400">开镜灵敏度</span>
                             <span class="font-semibold">0.75</span>
-                        </div>
-
-                        <!-- 新增：准星代码 -->
-                        <div class="pt-3 mt-3 border-t border-primary/20">
-                            <div class="flex items-center justify-between mb-1">
-                                <span class="text-gray-400 text-sm">准星代码</span>
-                                <button
-                                    onclick="copyCrosshair()"
-                                    class="text-primary hover:text-accent text-xs underline focus:outline-none"
-                                >
-                                    一键复制
-                                </button>
-                            </div>
-                            <textarea
-                                id="crosshairCode"
-                                class="w-full bg-dark text-gray-200 text-xs rounded p-2 border border-primary/30 resize-none focus:outline-none focus:ring-1 focus:ring-primary"
-                                rows="2"
-                                readonly
-                            >0;P;c;5;h;0;f;0;0t;4;0l;1;0o;1;0a;1;0f;0;1b;0</textarea>
                         </div>
                     </div>
                 </div>
@@ -367,8 +346,10 @@
             
             <!-- 主视频播放器 -->
             <div class="relative mb-6 rounded-xl overflow-hidden shadow-2xl hover-scale">
+                <!-- 修复：1. 添加了 muted 属性 2. 更新了视频源路径 -->
                 <video id="gameVideo" width="100%" autoplay muted loop playsinline class="w-full">
-                      <source src="https://cdn.jsdelivr.net/gh/shaw0w0/videos@Releasev1.0/videos/clip_1.mp4" type="video/mp4">
+                      <source src="videos/clip_1.mp4" type="video/mp4">
+                      <source src="videos/clip_1.webm" type="video/webm">
                       您的浏览器不支持 HTML5 视频标签。
                 </video>
                 <div class="absolute bottom-0 left-0 right-0 p-4 gradient-overlay">
@@ -388,55 +369,100 @@
         </div>
     </section>
 
-    <!-- 准星代码复制功能 -->
-    <script>
-        function copyCrosshair() {
-            const cb = document.getElementById('crosshairCode');
-            cb.select();
-            cb.setSelectionRange(0, 99999); // 移动设备兼容
-            document.execCommand('copy');
-            // 视觉反馈
-            const btn = event.target;
-            const original = btn.textContent;
-            btn.textContent = '已复制!';
-            btn.classList.remove('text-primary', 'hover:text-accent');
-            btn.classList.add('text-accent');
-            setTimeout(() => {
-                btn.textContent = original;
-                btn.classList.add('text-primary', 'hover:text-accent');
-                btn.classList.remove('text-accent');
-            }, 1200);
-        }
+    <!-- 页脚 -->
+    <footer class="py-8 px-4 bg-secondary border-t border-primary/20">
+        <div class="container mx-auto max-w-5xl text-center">
+            <div class="flex justify-center space-x-6 mb-6">
+                <a href="https://www.bilibili.com" target="_blank" class="text-gray-400 hover:text-primary transition-colors duration-300">
+                    <img src="images/bilibili-logo.jpg" alt="B站主页" class="h-6 w-auto inline-block">
+                </a>
+            </div>
+            <p class="text-gray-500 text-sm">© 2025 hysteria#4869 | 所有视频素材均为本人游戏记录</p>
+        </div>
+    </footer>
 
-        // 视频列表
+    <!-- 微信二维码弹窗 -->
+    <div id="wechatModal" class="modal">
+        <span class="close-btn">&times;</span>
+        <div class="modal-content">
+            <h2 class="text-xl font-bold mb-4">添加我的微信</h2>
+            <img src="images/wechat-qrcode.jpg" alt="微信二维码" class="w-64 h-64 mx-auto">
+            <p class="mt-4 text-gray-400">扫码添加好友</p>
+        </div>
+    </div>
+
+    <script>
+        // 视频文件
         const videos = [
             { src: "http://t38po47ot.hn-bkt.clouddn.com/clip_1.mp4", title: "精彩集锦 #1" },
             { src: "http://t38po47ot.hn-bkt.clouddn.com/clip_2.mp4", title: "精彩集锦 #2" },
             { src: "http://t38po47ot.hn-bkt.clouddn.com/clip_3.mp4", title: "精彩集锦 #3" }
         ];
+
+        
         let currentVideoIndex = 0;
-        const videoPlayer = document.getElementById('gameVideo');
-        const videoTitle = document.getElementById('currentVideoTitle');
-        const prevButton = document.getElementById('prevVideo');
-        const nextButton = document.getElementById('nextVideo');
-
-        function loadVideo(index) {
-            const currentVideo = videos[index];
-            videoPlayer.src = currentVideo.src;
-            videoTitle.textContent = currentVideo.title;
-            videoPlayer.play();
-        }
-
-        prevButton.addEventListener('click', () => {
+        const videoElement = document.getElementById('gameVideo');
+        const currentVideoTitle = document.getElementById('currentVideoTitle');
+        const prevVideoBtn = document.getElementById('prevVideo');
+        const nextVideoBtn = document.getElementById('nextVideo');
+        
+        // 视频控制
+        prevVideoBtn.addEventListener('click', playPrevVideo);
+        nextVideoBtn.addEventListener('click', playNextVideo);
+        
+        // 当视频播放结束时，播放下一个视频
+        videoElement.addEventListener('ended', playNextVideo);
+        
+        function playPrevVideo() {
             currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
-            loadVideo(currentVideoIndex);
-        });
-
-        nextButton.addEventListener('click', () => {
+            updateVideoPlayer();
+        }
+        
+        function playNextVideo() {
             currentVideoIndex = (currentVideoIndex + 1) % videos.length;
-            loadVideo(currentVideoIndex);
+            updateVideoPlayer();
+        }
+        
+        function updateVideoPlayer() {
+            const video = videos[currentVideoIndex];
+            videoElement.src = video.src;
+            currentVideoTitle.textContent = video.title;
+            videoElement.load();
+            videoElement.play();
+        }
+        
+        // 微信二维码弹窗功能
+        const modal = document.getElementById('wechatModal');
+        const addFriendBtn = document.getElementById('addFriendBtn');
+        const closeBtn = document.querySelector('.close-btn');
+        
+        addFriendBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+        
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-dark/95');
+                nav.classList.remove('bg-dark/80');
+            } else {
+                nav.classList.add('bg-dark/80');
+                nav.classList.remove('bg-dark/95');
+            }
         });
     </script>
 </body>
+
 </html>
 
