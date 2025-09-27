@@ -219,6 +219,124 @@
             </div>
         </div>
     </section>
+    
+    <!-- 设置选项 -->
+    <section id="settings" class="py-16 px-4 bg-dark">
+        <div class="container mx-auto max-w-5xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-2 text-center">设置选项</h2>
+            <p class="text-gray-400 text-center mb-12">鼠标设置与外设选择</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- 鼠标设置卡片 -->
+                <div class="bg-secondary rounded-lg p-6 hover-scale border border-primary/10 hover:border-primary/30 transition-all duration-300">
+                    <h3 class="text-xl font-bold mb-4 text-primary flex items-center">
+                        <i class="fa fa-mouse-pointer mr-2"></i>鼠标设置
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">DPI</span>
+                            <span class="font-semibold">1200</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">灵敏度</span>
+                            <span class="font-semibold">0.125</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">eDPI</span>
+                            <span class="font-semibold">150</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">轮询率</span>
+                            <span class="font-semibold">2000 Hz</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">开镜灵敏度</span>
+                            <span class="font-semibold">0.75</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 外设展示卡片 -->
+                <div class="bg-secondary rounded-lg p-6 hover-scale border border-primary/10 hover:border-primary/30 transition-all duration-300">
+                    <h3 class="text-xl font-bold mb-4 text-primary flex items-center">
+                        <i class="fa fa-keyboard-o mr-2"></i>外设展示
+                    </h3>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">鼠标</span>
+                            <span class="font-semibold">ATK Blazing SKY F1</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">键盘</span>
+                            <span class="font-semibold">MAD 60HE</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">耳机</span>
+                            <span class="font-semibold">EDIFIER GM360</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-gray-400">鼠标垫</span>
+                            <span class="font-semibold">CAPERE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 成就 -->
+    <section id="achievements" class="py-16 px-4 bg-secondary">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-2 text-center">成就</h2>
+            <p class="text-gray-400 text-center mb-12">职业生涯比赛成绩</p>
+
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-dark rounded-lg overflow-hidden border border-primary/20">
+                    <thead class="bg-primary text-dark">
+                        <tr>
+                            <th class="py-3 px-4 text-left text-sm font-semibold">Date</th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold">Place</th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold">Tier</th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold">Tournament</th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold">Team</th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold">Result</th>
+                            <th class="py-3 px-4 text-left text-sm font-semibold">Prize</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-primary/10">
+                        <tr class="hover:bg-primary/5 transition-colors duration-200">
+                            <td class="py-3 px-4 text-sm">2025-9-01</td>
+                            <td class="py-3 px-4 text-sm">1nd</td>
+                            <td class="py-3 px-4 text-sm">S-Tier</td>
+                            <td class="py-3 px-4 text-sm">VALORANT Bot Tour Meizhou 2025</td>
+                            <td class="py-3 px-4 text-sm font-semibold text-primary">SG Esports</td>
+                            <td class="py-3 px-4 text-sm">3-0 Team Bot</td>
+                            <td class="py-3 px-4 text-sm">$10</td>
+                        </tr>
+                        <tr class="hover:bg-primary/5 transition-colors duration-200">
+                            <td class="py-3 px-4 text-sm">2025-06-10</td>
+                            <td class="py-3 px-4 text-sm">1st</td>
+                            <td class="py-3 px-4 text-sm">A-Tier</td>
+                            <td class="py-3 px-4 text-sm">1v1 All-Star Showdown</td>
+                            <td class="py-3 px-4 text-sm font-semibold text-primary">SG Esports</td>
+                            <td class="py-3 px-4 text-sm">3-0 Uzi<span class="ml-1 text-xs text-primary cursor-pointer"
+        title="Uzi缺席">ⓘ</span></td>
+                            <td class="py-3 px-4 text-sm">$5</td>
+                        </tr>
+                        <tr class="hover:bg-primary/5 transition-colors duration-200">
+                            <td class="py-3 px-4 text-sm">2024-12-20</td>
+                            <td class="py-3 px-4 text-sm">1rd</td>
+                            <td class="py-3 px-4 text-sm">A-Tier</td>
+                            <td class="py-3 px-4 text-sm">VALORANT Warm-up Championship</td>
+                            <td class="py-3 px-4 text-sm font-semibold text-primary">SG Esports</td>
+                            <td class="py-3 px-4 text-sm">1rd Place</td>
+                            <td class="py-3 px-4 text-sm">$2</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
 
     <!-- 游戏集锦区域 -->
     <section id="highlights" class="py-16 px-4 bg-secondary">
