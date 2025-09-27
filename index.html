@@ -253,6 +253,24 @@
                             <span class="text-gray-400">开镜灵敏度</span>
                             <span class="font-semibold">0.75</span>
                         </div>
+                        <!-- 新增：准星代码 -->
+                        <div class="pt-3 mt-3 border-t border-primary/20">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-gray-400 text-sm">准星代码</span>
+                                <button
+                                    onclick="copyCrosshair()"
+                                    class="text-primary hover:text-accent text-xs underline focus:outline-none"
+                                >
+                                    一键复制
+                                </button>
+                            </div>
+                            <textarea
+                                id="crosshairCode"
+                                class="w-full bg-dark text-gray-200 text-xs rounded p-2 border border-primary/30 resize-none focus:outline-none focus:ring-1 focus:ring-primary"
+                                rows="2"
+                                readonly
+                            >0;s;1;P;c;2;h;0;d;1;z;1;0l;2;0v;2;0o;0;0a;1;0f;0;1b;0;S;c;1;s;0.7</textarea>
+                        </div>
                     </div>
                 </div>
 
@@ -465,4 +483,5 @@
 </body>
 
 </html>
+
 
