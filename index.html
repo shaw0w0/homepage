@@ -417,14 +417,28 @@
 
         
         let currentVideoIndex = 0;
+        
         const videoElement = document.getElementById('gameVideo');
         const currentVideoTitle = document.getElementById('currentVideoTitle');
         const prevVideoBtn = document.getElementById('prevVideo');
         const nextVideoBtn = document.getElementById('nextVideo');
-        
+
+        function updateVideoPlayer() {
+          const v = videos[currentVideoIndex];
+          videoElement.src = v.src.trim();
+          currentVideoTitle.textContent = v.title;
+          videoElement.load();
+          videoElement.play();
+        }
         // 视频控制
-        prevVideoBtn.addEventListener('click', playPrevVideo);
-        nextVideoBtn.addEventListener('click', playNextVideo);
+        prevVideoBtn.addEventListener('click', () => {
+          currentVideoIndex = (currentVideoIndex - 1 + videos.length) % videos.length;
+          updateVideoPlayer();
+        });
+        nextVideoBtn.addEventListener('click', () => {
+          currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+          updateVideoPlayer();
+        });
         
         // 当视频播放结束时，播放下一个视频
         videoElement.addEventListener('ended', playNextVideo);
@@ -437,14 +451,6 @@
         function playNextVideo() {
             currentVideoIndex = (currentVideoIndex + 1) % videos.length;
             updateVideoPlayer();
-        }
-        
-        function updateVideoPlayer() {
-            const video = videos[currentVideoIndex];
-            videoElement.src = video.src;
-            currentVideoTitle.textContent = video.title;
-            videoElement.load();
-            videoElement.play();
         }
         
         // 微信二维码弹窗功能
@@ -477,10 +483,12 @@
                 nav.classList.remove('bg-dark/95');
             }
         });
+        document.addEventListener('DOMContentLoaded', updateVideoPlayer);
     </script>
 </body>
 
 </html>
+
 
 
 
