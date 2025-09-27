@@ -410,5 +410,31 @@
             }, 1200);
         }
     </script>
+    <script>
+  const videos = [
+    { src: "https://cdn.jsdelivr.net/gh/shaw0w0/videos@Releasev1.0/videos/clip_1.mp4", title: "精彩集锦 #1" },
+    { src: "https://cdn.jsdelivr.net/gh/shaw0w0/videos@Releasev1.0/videos/clip_2.mp4", title: "精彩集锦 #2" },
+    { src: "https://cdn.jsdelivr.net/gh/shaw0w0/videos@Releasev1.0/videos/clip_3.mp4", title: "精彩集锦 #3" }
+  ];
+  let current = 0;
+  const videoEl = document.getElementById('gameVideo');
+  const titleEl = document.getElementById('currentVideoTitle');
+
+  function loadVideo(index) {
+    videoEl.src = videos[index].src;
+    titleEl.textContent = videos[index].title;
+    current = index;
+  }
+  document.getElementById('prevVideo').addEventListener('click', () => {
+    current = (current - 1 + videos.length) % videos.length;
+    loadVideo(current);
+  });
+  document.getElementById('nextVideo').addEventListener('click', () => {
+    current = (current + 1) % videos.length;
+    loadVideo(current);
+  });
+  loadVideo(0); // 初始化
+</script>
 </body>
 </html>
+
